@@ -1,0 +1,10 @@
+<slot name="before"></slot>
+<!-- 这是自定义组件的内部WXML结构 -->
+<view class="inner">
+  {{innerText}}
+  {{propA}}
+  {{propB}}
+</view>
+<slot name="after"></slot>
+<button bindtap="onTap">点击这个按钮将触发“myevent”事件</button>
+

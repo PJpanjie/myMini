@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "contactor-component": "../components/contactor/contactor"
+  }
+}

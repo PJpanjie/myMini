@@ -1,0 +1,6 @@
+<!--pages/scale/scale.wxml-->
+<view class="container">
+    <view bindtouchmove="touchmoveCallback" bindtouchstart="touchstartCallback">
+        <image src="../images/img.jpg" style="width: {{ touch.scaleWidth }}px;height: {{ touch.scaleHeight }}px" bindload="bindload"></image>
+    </view>
+</view>
