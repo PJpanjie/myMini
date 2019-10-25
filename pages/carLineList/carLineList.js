@@ -1,5 +1,6 @@
 let configUrl = require("../utils/config.js");
 let app = getApp();
+
 Page({
 
   /**
