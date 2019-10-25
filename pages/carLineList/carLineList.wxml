@@ -88,4 +88,4 @@
     </view>
   </view>
 </view>
-<view class="noData" wx:else>暂无订单～</view>
+<view class="noData" wx:if="{{listData.length == 0}}">暂无订单～</view>

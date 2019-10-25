@@ -36,9 +36,9 @@ Page({
       } else {
         let num = -1;
         if(index == 3){
-          num = 0;
-        } else if (index == -1){
           num = 1;
+        } else if (index == -1){
+          num = 0;
         }else {
           num = -1;
         }
