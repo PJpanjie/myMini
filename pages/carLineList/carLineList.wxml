@@ -38,7 +38,7 @@
       </view>
     </view>
     <view class="btnList">
-      <view class="btnLi" wx:if="{{item.status == 0 || item.status == 2 || item.status == 3}}">取消</view>
+      <view class="btnLi" wx:if="{{item.status == 0 || item.status == 2 || item.status == 3}}" catchtap='operateOrder' data-item="{{item}}">取消</view>
       <view class="btnLi" wx:if="{{item.status == 1}}">拒绝</view>
       <view class="btnLi sure" wx:if="{{item.status == 1}}">确认</view>
       <!-- <view class="btnLi sure">确认上车</view> -->
@@ -46,36 +46,5 @@
       <view class="btnLi" wx:if="{{item.status == 4}}">去点评</view>
     </view>
   </view>
-  <!-- <view class="linePannel" catchtap='dateTimePannelType'>
-    <view class="linePannelCon">
-      <view class="linePannelLeft">
-        <view class="timeType">明天09:00出发 2人</view>
-        <view class="startLocation">
-          <view class="circle"></view>
-          <view class="startLocationTxt">淞泽家园一区</view>
-        </view>
-        <view class="goLocation">
-          <view class="circle"></view>
-          <view class="startLocationTxt">同程大厦</view>
-        </view>
-      </view>
-      <view class="linePanneRight">
-        <view class="orderStatus">等待接单</view>
-        <view class="price">¥18</view>
-      </view>
-    </view>
-    <view class="driverMess">
-      <image class="headImg" src="../images/head_img.png"></image>
-      <view class="driverMessTxt">
-        <view class="driverName">张敏（前端开发组）</view>
-        <view class="sex">女  单身 <image src="../images/tel_icon.png" bindtap="toCallTel"></image></view>
-        <view class="cardMess">奥迪Q5  25次  4.9分</view>
-      </view>
-    </view>
-    <view class="btnList">
-      <view class="btnLi">拒绝</view>
-      <view class="btnLi sure">确认</view>
-    </view>
-  </view> -->
 </view>
 <view class="noData" wx:else>暂无订单～</view>

@@ -55,3 +55,30 @@ page {
   background: #ff9100;
   color: #fff;
 }
+
+/* 搜索弹框 */
+.searchPannel {
+  width: 100%;
+  height: 85%;
+  position: absolute;
+  top: 15%;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.searchPannel.topMove {
+  top: 8%;
+  grid-row-end: 92%;
+}
+
+.searchList {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 2rpx solid #efefef;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

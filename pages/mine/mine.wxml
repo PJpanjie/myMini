@@ -27,23 +27,15 @@
       </view>
     </view>
     <!-- 乘客 -->
-    <navigator class="menuList" url="/pages/carLineList/carLineList" wx:if="{{userMessage.empRole == 0}}">
+    <view class="menuList" wx:if="{{userMessage.empRole == 0}}">
       <view class="menuName">乘车记录 <text>20条</text></view>
       <image src="../images/arrow_icon.png"></image>
-    </navigator>
-    <!-- <view class="menuList">
-      <view class="menuName">乘车记录 <text>20条</text></view>
-      <image src="../images/arrow_icon.png"></image>
-    </view> -->
+    </view>
     <!-- 车主 -->
-    <navigator class="menuList" url="/pages/carLineList/carLineList" wx:else>
+    <view class="menuList" wx:else>
       <view class="menuName">接单记录 <text>20条</text></view>
       <image src="../images/arrow_icon.png"></image>
-    </navigator>
-    <!-- <view class="menuList">
-      <view class="menuName">接单记录 <text>20条</text></view>
-      <image src="../images/arrow_icon.png"></image>
-    </view> -->
+    </view>
     <view class="menuList">
       <view class="menuName">安全中心</view>
       <image src="../images/arrow_icon.png"></image>
@@ -66,7 +58,7 @@
       <image src="../images/arrow_icon.png"></image>
     </view>
     <view class="btnList">
-      <view class="changeRole">切换为{{userMessage.empRole == 0 ? '车主' : '乘客'}}</view>
+      <view class="changeRole" catchtap='changeRole'>切换为{{userMessage.empRole == 0 ? '车主' : '乘客'}}</view>
       <view class="outBtn">退出</view>
     </view>
   </view>

@@ -14,22 +14,27 @@
 </view>
 <view class="goWorkTime">
   <view class="goWorkTimeTitle">上班时间</view>
-  <picker mode="time" value="{{time}}" bindchange="bindTimeChange" class="timePicker">
+  <picker mode="time" value="{{time}}" bindchange="bindWorkTimeChange" class="timePicker">
     <view class="picker">
-      {{time}}
+      {{workTime}}
       <image src="../images/arrow_icon.png"></image>
     </view>
   </picker>
 </view>
 <view class="goWorkTime">
   <view class="goWorkTimeTitle">下班时间</view>
-  <picker mode="time" value="{{time}}" bindchange="bindTimeChange" class="timePicker">
+  <picker mode="time" value="{{time}}" bindchange="bindOffWorkTimeChange" class="timePicker">
     <view class="picker">
-      {{time}}
+      {{offWorkTime}}
       <image src="../images/arrow_icon.png"></image>
     </view>
   </picker>
 </view>
 <form report-submit="true">
-  <button class="timeBtn" form-type="submit">确认提交</button>
+  <button class="timeBtn" form-type="submit" catchtap='setLineSetting'>确认提交</button>
 </form>
+
+<!-- 搜索弹框 -->
+<view class="searchPannel {{topMove ? 'topMove' : ''}}" wx:if="{{showSearchPannel}}">
+  <view class="searchList" wx:for="{{searchData}}" wx:key="index" catchtap='selectSearchData' data-title="{{item.Title}}" data-location="{{item.Location}}">{{item.Title}}</view>
+</view>

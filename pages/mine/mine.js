@@ -1,4 +1,5 @@
 let app = getApp();
+let configUrl = require("../utils/config.js");
 Page({
 
   /**
@@ -15,7 +16,42 @@ Page({
     })
   },
 
-  // 
+  // 切换模式
+  changeRole(){
+    let { userMessage } = this.data;
+    let reqData = {
+      id: userMessage.id,
+      role: 1 - userMessage.empRole
+    }
+
+    wx.request({
+      url: `${configUrl.url}/Employee/SwitchRole`,
+      data: reqData,
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        'content-type': 'application/json'
+      },
+      success: (res) => {
+        if (res && res.data && res.data.StateCode == 200) {
+          wx.showLoading({
+            title: '加载中',
+          })
+
+          setTimeout(() => {
+            wx.hideLoading()
+            // 回首页
+            this.goIndexPage();
+          }, 2000)
+        }
+      },
+      fail: function (error) {
+
+      },
+      complete: function () {
+
+      }
+    });
+  },
 
   /**
    * 生命周期函数--监听页面加载

@@ -14,7 +14,7 @@
 
   <view class="carShareCon">
     <!-- 进行中的订单标记 -->
-    <view class="ingOrder" wx:if="{{noFinishData.length}}">你有{{noFinishData.length}}个进行中的订单</view>
+    <view class="ingOrder" wx:if="{{noFinishData.length}}" catchtap='goMyLinePage'>你有{{noFinishData.length}}个进行中的订单</view>
     <view class="startLocation">
       <view class="circle"></view>
       <input placeholder="从哪里出发" placeholder-class="inputBox" value="{{fromLocationName}}" bindinput="searchingFn" data-type="fromInput" maxlength="20"></input>
@@ -45,7 +45,7 @@
   <!-- 吸底 -->
   <view class="tabBar">
     <view class="mainPage on">主页</view>
-    <view class="mine" catchtap='goMyPage'>我的</view>
+    <view class="mine" catchtap='goMyPage'>我的({{userMessage.empRole == 0 ? '乘客模式' : '车主模式'}})</view>
   </view>
 
   <!-- 弹框时间选择 -->

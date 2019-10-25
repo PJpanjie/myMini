@@ -1,4 +1,5 @@
 let configUrl = require("../utils/config.js");
+let app = getApp();
 Page({
 
   /**
@@ -254,11 +255,19 @@ Page({
 
     if (topMove) {
       this.setData({
-        fromLocationName: title
+        fromLocationName: title,
+        fromLocation: {
+          latitude: location.Lat,
+          longitude: location.Lng
+        },
       });
     } else {
       this.setData({
-        searchInputValue: title
+        searchInputValue: title,
+        toLocation: {
+          latitude: location.Lat,
+          longitude: location.Lng
+        },
       });
     }
 
@@ -279,22 +288,41 @@ Page({
 
   // 打开日期时间面板
   dateTimePannelType(e) {
-    let { showDateTimePannel, fromLocationName, searchInputValue, fromLocation } = this.data;
-    let { item } = e.currentTarget.dataset;
+    let { showDateTimePannel, fromLocationName, searchInputValue, fromLocation, toLocation } = this.data;
+
+    let item = '';
+    if (e && e.currentTarget && e.currentTarget.dataset){
+      item = e && e.currentTarget && e.currentTarget.dataset && e.currentTarget.dataset.item;
+    }
+
+    let polyline = [];
 
     if(item){
       this.setData({
         fromLocationName: item.startPoint,
         searchInputValue: item.endPoint,
         fromLocation: {
-          latitude: item.origin.split(',')[1],
-          longitude: item.origin.split(',')[0]
+          latitude: item.origin.split(',')[0],
+          longitude: item.origin.split(',')[1]
         },
         toLocation: {
-          latitude: item.destination.split(',')[1],
-          longitude: item.destination.split(',')[0]
+          latitude: item.destination.split(',')[0],
+          longitude: item.destination.split(',')[1]
         }
       })
+
+      polyline = [{
+        points: [{
+          longitude: item.origin.split(',')[1],
+          latitude: item.origin.split(',')[0]
+        }, {
+          longitude: item.destination.split(',')[1],
+          latitude: item.destination.split(',')[0]
+        }],
+        color: "#FF0000DD",
+        width: 6
+      }]
+
     }else {
       this.setData({
         fromLocationName,
@@ -308,9 +336,23 @@ Page({
           longitude: toLocation.longitude
         }
       })
+
+      polyline = [{
+        points: [{
+          longitude: fromLocation.longitude,
+          latitude: fromLocation.latitude
+        }, {
+            longitude: toLocation.longitude,
+            latitude: toLocation.latitude
+        }],
+        color: "#FF0000DD",
+        width: 6
+      }]
     }
+
     this.setData({
-      showDateTimePannel: !showDateTimePannel
+      showDateTimePannel: !showDateTimePannel,
+      polyline
     })
   },
 
@@ -357,7 +399,18 @@ Page({
 
   // 车主身份的话发起搜索
   startSearch(){
+    let { fromLocation, toLocation, date} = this.data;
+    app.globalData.fromLocation = fromLocation;
+    app.globalData.toLocation = toLocation;
+    app.globalData.date = date;
+    
     this.goMyLinePage();
+
+    // 关闭弹框
+    this.setData({
+      showDateTimePannel: false,
+      showSelectPeopleNumPannel: false
+    })
   },
 
   // 打开人数选择面板
@@ -436,11 +489,10 @@ Page({
           this.setData({
             userMessage: res.data.Employee
           },()=>{
-            this.getLineListByEmpId(res.data.Employee.empRole);
+            this.getLineListByEmpId(res.data.Employee.id);
             this.getIngOrder();
 
             // 存储信息到全局变量。方便在我的里面使用
-            var app = getApp();
             app.globalData.mydata = res.data.Employee;
           })
         }
@@ -468,11 +520,13 @@ Page({
         'content-type': 'application/json'
       },
       success: (res) => {
-        if (res && res.data && res.data.StateCode == 200) {
+        if (res && res.data && res.data.StateCode == 200 && res.data.LineList && res.data.LineList.length) {
           let aftenLine = res.data.LineList;
           // 处理日期格式
           for (let item of aftenLine){
-            item.takeTime = item.takeTime.split(' ')[1];
+            if (item.takeTime && item.takeTime.split(' ').length > 1){
+              item.takeTime = item.takeTime.split(' ')[1];
+            }
           }
           this.setData({
             aftenLine
@@ -506,7 +560,7 @@ Page({
     })
   },
 
-  // 跳转我的页面
+  // 跳转我的订单页面
   goMyLinePage() {
     let { userMessage } = this.data;
 
