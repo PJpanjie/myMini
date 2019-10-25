@@ -158,18 +158,22 @@ Page({
     let { driverId, status, userMessage } = this.data;
     let { item } = e.currentTarget.dataset;
 
+    console.log(item)
+
     // 待支付 是取消订单
     if (item.status == 0) {
       status = 6;
     }
 
     // 取消订单时不需要 不需要传driverId
-    if (item.status == 6) {
+    else if (item.status == 6) {
       driverId = 0;
+    } else if (userMessage.empRole == 1){
+      status = 1;
     }
 
     let reqData = {
-      id: item.id,
+      id: item.Id,
       driverId,  // 车主Id（取消订单时不需要）
       status
     }
@@ -190,7 +194,11 @@ Page({
 
           setTimeout(() => {
             wx.hideLoading()
-            this.getIngOrder();
+            if (userMessage.empRole == 0){
+              this.getIngOrder();
+            }else {
+              this.getRecommendOrder();
+            }
           }, 2000)
         }
       },

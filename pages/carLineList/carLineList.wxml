@@ -84,7 +84,7 @@
       <view class="btnLi" wx:if="{{item.status == 4}}">去点评</view>
     </view>
     <view class="btnList" wx:else>
-      <view class="btnLi sure">已达终点</view>
+      <view class="btnLi sure" catchtap='operateOrder' data-item="{{item}}">接单</view>
     </view>
   </view>
 </view>
