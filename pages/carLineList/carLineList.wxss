@@ -71,6 +71,15 @@ page {
   color: #ff9100;
 }
 
+.linePanneRight .orderStatus.percent {
+  color: #333;
+  margin-top: 20rpx;
+}
+
+.linePanneRight .orderStatus.percent text {
+  color: #ff9100;
+}
+
 .linePanneRight .price {
   margin-top: 10rpx;
 }

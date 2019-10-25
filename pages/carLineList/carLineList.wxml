@@ -10,7 +10,8 @@
   <view class="tabLi {{status == 3 ? 'on' : ''}}" data-index="3" catchtap='tabClick'>女乘客</view>
   <view class="tabLi {{status == -1 ? 'on' : ''}}" data-index="-1" catchtap='tabClick'>男乘客</view>
 </view>
-<view class="lineCon" wx:if="{{listData.length}}">
+<!-- 乘客 -->
+<view class="lineCon" wx:if="{{listData.length && passengerId > 0}}">
   <view class="linePannel" wx:for="{{listData}}" wx:key="index" catchtap='dateTimePannelType'>
     <view class="linePannelCon">
       <view class="linePannelLeft">
@@ -44,6 +45,46 @@
       <!-- <view class="btnLi sure">确认上车</view> -->
       <view class="btnLi sure" wx:if="{{item.status == 3}}">已达终点</view>
       <view class="btnLi" wx:if="{{item.status == 4}}">去点评</view>
+    </view>
+  </view>
+</view>
+<!-- 车主 -->
+<view class="lineCon" wx:if="{{listData.length && passengerId == 0}}">
+  <view class="linePannel" wx:for="{{listData}}" wx:key="index" catchtap='dateTimePannelType'>
+    <view class="linePannelCon">
+      <view class="linePannelLeft">
+        <view class="timeType">{{item.Date}}出发 {{item.PeopleCount}}人</view>
+        <view class="startLocation">
+          <view class="circle"></view>
+          <view class="startLocationTxt">{{item.FromPlace}}</view>
+        </view>
+        <view class="goLocation">
+          <view class="circle"></view>
+          <view class="startLocationTxt">{{item.ToPlace}}</view>
+        </view>
+      </view>
+      <view class="linePanneRight">
+        <view class="price">¥{{item.Money}}</view>
+        <view class="orderStatus percent">顺路程度 <text>{{item.Percent * 100}}%</text></view>
+      </view>
+    </view>
+    <view class="driverMess">
+      <image class="headImg" src="../images/head_img.png"></image>
+      <view class="driverMessTxt">
+        <view class="driverName">{{item.Name}}（{{item.EmpStation}}）</view>
+        <view class="sex">{{item.SexType == 0 ? '男' : '女'}}  {{item.IsSingle > 0 ? '单身' : ''}} <image src="../images/tel_icon.png" bindtap="toCallTel"></image></view>
+      </view>
+    </view>
+    <view class="btnList" wx:if="{{passengerId > 0}}">
+      <view class="btnLi" wx:if="{{item.status == 0 || item.status == 2 || item.status == 3}}" catchtap='operateOrder' data-item="{{item}}">取消</view>
+      <view class="btnLi" wx:if="{{item.status == 1}}">拒绝</view>
+      <view class="btnLi sure" wx:if="{{item.status == 1}}">确认</view>
+      <!-- <view class="btnLi sure">确认上车</view> -->
+      <view class="btnLi sure" wx:if="{{item.status == 3}}">已达终点</view>
+      <view class="btnLi" wx:if="{{item.status == 4}}">去点评</view>
+    </view>
+    <view class="btnList" wx:else>
+      <view class="btnLi sure">已达终点</view>
     </view>
   </view>
 </view>
