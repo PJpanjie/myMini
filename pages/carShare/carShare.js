@@ -555,7 +555,7 @@ Page({
     } else if (userMessage.empRole == 1) {
       driverId = userMessage.id
     }
-    wx.navigateTo({
+    wx.redirectTo({
       url: `../mine/mine?passengerId=${passengerId}&driverId=${driverId}`
     })
   },
