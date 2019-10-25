@@ -173,7 +173,7 @@ Page({
     }
 
     let reqData = {
-      id: item.Id,
+      id: userMessage.empRole == 1 ? item.Id : item.id,
       driverId,  // 车主Id（取消订单时不需要）
       status
     }
