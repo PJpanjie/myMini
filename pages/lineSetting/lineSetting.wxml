@@ -1,0 +1,35 @@
+<view class="company">
+  <view class="companyName">
+    <image src="../images/company_icon.png"></image>
+    公司
+  </view>
+  <input placeholder="公司地址" placeholder-class="inputBox" value="{{fromLocationName}}" bindinput="searchingFn" data-type="fromInput" maxlength="20"></input>
+</view>
+<view class="home">
+  <view class="homeName">
+    <image src="../images/home_icon.png"></image>
+    家
+  </view>
+  <input placeholder="家庭地址" placeholder-class="inputBox" value="{{searchInputValue}}" bindinput="searchingFn" data-type="toInput" maxlength="20"></input>
+</view>
+<view class="goWorkTime">
+  <view class="goWorkTimeTitle">上班时间</view>
+  <picker mode="time" value="{{time}}" bindchange="bindTimeChange" class="timePicker">
+    <view class="picker">
+      {{time}}
+      <image src="../images/arrow_icon.png"></image>
+    </view>
+  </picker>
+</view>
+<view class="goWorkTime">
+  <view class="goWorkTimeTitle">下班时间</view>
+  <picker mode="time" value="{{time}}" bindchange="bindTimeChange" class="timePicker">
+    <view class="picker">
+      {{time}}
+      <image src="../images/arrow_icon.png"></image>
+    </view>
+  </picker>
+</view>
+<form report-submit="true">
+  <button class="timeBtn" form-type="submit">确认提交</button>
+</form>

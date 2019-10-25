@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -59,7 +59,44 @@
 				{
 					"id": -1,
 					"name": "刮刮卡",
-					"pathName": "pages/scratch/scratch"
+					"pathName": "pages/scratch/scratch",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "上下班拼车应用",
+					"pathName": "pages/carShare/carShare",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "上下班拼车登陆",
+					"pathName": "pages/carLogin/carLogin",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "上下班拼车线路列表",
+					"pathName": "pages/carLineList/carLineList",
+					"query": "passengerId=0&status=0&driverId=1"
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/mine",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "行程设置",
+					"pathName": "pages/lineSetting/lineSetting",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人信息设置",
+					"pathName": "pages/ownMessage/ownMessage",
+					"query": ""
 				}
 			]
 		}

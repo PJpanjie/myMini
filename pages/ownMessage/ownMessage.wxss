@@ -1,0 +1,12 @@
+.ownMessageBox {
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.ownMessageLi {
+  display: flex;
+}
+
+.ownMessageLi {
+  
+}

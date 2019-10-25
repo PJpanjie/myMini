@@ -1,0 +1,119 @@
+
+<view class="carShare">
+  <!-- 地图 -->
+  <!-- <map
+    id="myMap"
+    style="width: 100%; height: 30%;"
+    latitude="{{fromLocation.latitude}}"
+    longitude="{{fromLocation.longitude}}"
+    markers="{{markers}}"
+    show-location
+    polyline="{{polyline}}"
+    scale="20"
+  ></map> -->
+
+  <view class="carShareCon">
+    <!-- 进行中的订单标记 -->
+    <view class="ingOrder" wx:if="{{noFinishData.length}}">你有{{noFinishData.length}}个进行中的订单</view>
+    <view class="startLocation">
+      <view class="circle"></view>
+      <input placeholder="从哪里出发" placeholder-class="inputBox" value="{{fromLocationName}}" bindinput="searchingFn" data-type="fromInput" maxlength="20"></input>
+    </view>
+    <view class="goLocation">
+      <view class="circle"></view>
+      <input placeholder="想要去哪" placeholder-class="inputBox" value="{{searchInputValue}}" bindinput="searchingFn" data-type="toInput"></input>
+    </view>
+    <!-- <view class="locationList">
+      <view class="locationListLi">玲珑湾花园</view>
+      <view class="locationListLi">玲珑湾花园</view>
+      <view class="locationListLi">玲珑湾花园</view>
+      <view class="locationListLi">湾花园</view>
+    </view> -->
+    <!-- 常用线路 -->
+    <block wx:if="{{aftenLine.length}}">
+      <view class="lineNormal">常用线路</view>
+      <view wx:for="{{aftenLine}}" wx:key="index" class="linePannel" catchtap='dateTimePannelType' data-item="{{item}}">
+        <view class="lineTitle">{{item.name}}</view>
+        <view class="lineTxt">{{item.startPoint}} -> {{item.endPoint}}</view>
+        <view class="timeClock">
+          <image src="../images/clock_icon.png"></image>
+          工作日 {{item.takeTime}}
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- 吸底 -->
+  <view class="tabBar">
+    <view class="mainPage on">主页</view>
+    <view class="mine" catchtap='goMyPage'>我的</view>
+  </view>
+
+  <!-- 弹框时间选择 -->
+  <view class="timePannelMask {{showDateTimePannel ? 'show' : ''}}" >
+    <view class="mask" catchtap='dateTimePannelType'>
+    </view>
+    <view class="timePannel">
+        <view class="selectTimeTitle">选择出发时间</view>
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange" class="datePicker">
+          <view class="picker">
+            出发日期: <text>{{isTodayPara ? '今天' : date}}</text>
+          </view>
+        </picker>
+        <picker mode="time" value="{{time}}" bindchange="bindTimeChange" class="timePicker">
+          <view class="picker">
+            出发具体时间: <text>{{time}}</text>
+          </view>
+        </picker>
+        <!-- 乘客按钮 -->
+        <form report-submit="true" wx:if="{{userMessage.empRole == 0}}">
+          <button class="timeBtn" form-type="submit" catchtap='peopleNumSelectPannelType'>{{isTodayPara ? '今天' : date}} {{time}} 出发</button>
+        </form>
+        <!-- 车主按钮 -->
+        <form report-submit="true" wx:else>
+          <button class="timeBtn" form-type="submit" catchtap='startSearch'>发起搜索</button>
+        </form>
+      </view>
+  </view>
+
+  <!-- 只有乘客可以弹框进行人数选择 -->
+  <view class="peoplePannelMask {{showSelectPeopleNumPannel ? 'show' : ''}}" wx:if="{{userMessage.empRole == 0}}">
+    <view class="mask" catchtap='peopleNumSelectPannelType'></view>
+    <view class="peoplePannel">
+        <view class="selectTimeTitle">选择乘车人数</view>
+        <view class="peopleNum">
+          <view class="peopleNumLi {{rideNum == item+1 ? 'on' : ''}}" wx:for="{{4}}" wx:key="item" catchtap='selectRideNum' data-index="{{item}}">{{item+1}}人</view>
+        </view>
+        <view class="demind">
+          <view class="price">拼成价：<text>¥{{pinPrice}}</text></view>
+          <view class="demindCon">
+            <view class="demindConLi">
+              <radio checked="{{labelSelect == 0}}" catchtap='selectLabel' data-type="0"></radio>只要男司机
+            </view>
+            <view class="demindConLi">
+              <radio checked="{{labelSelect == 1}}" catchtap='selectLabel' data-type="1"></radio>只要女司机
+            </view>
+          </view>
+        </view>
+        <form report-submit="true">
+          <button class="timeBtn" form-type="submit" catchtap='passengerReleaseOrder'>{{rideNum}}人乘车</button>
+        </form>
+      </view>
+  </view>
+
+  <!-- 搜索弹框 -->
+  <view class="searchPannel {{topMove ? 'topMove' : ''}}" wx:if="{{showSearchPannel}}">
+    <view class="searchList" wx:for="{{searchData}}" wx:key="index" catchtap='selectSearchData' data-title="{{item.Title}}" data-location="{{item.Location}}">{{item.Title}}</view>
+  </view>
+
+
+  <!-- 上传图片 -->
+  <!-- <view class="imgUl">
+    <view class="imgli" wx:for="{{localUploadImg}}" :key="index">
+      <image mode="aspectFit" src='{{item}}'></image>
+      <text class="del" data-index="{{index}}" bindtap="deleteImg"></text>
+    </view>
+    <view class="imgli" bindtap="addImg">
+      <image src='https://img1.40017.cn/cn/s/huaqiaocheng/nhellokitty/myorder/upload.jpg'></image>
+    </view>
+  </view> -->
+</view>

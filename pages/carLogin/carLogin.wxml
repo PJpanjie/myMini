@@ -1,0 +1,20 @@
+<view class="login">
+  <view class="title">同程拼车</view>
+  <view class="inputCon">
+    <view class="usernameCon">
+      <image src="../images/username_icon.png"></image>
+      <input placeholder="OA工号" placeholder-class="inputBox"></input>
+    </view>
+    <view class="passwordCon">
+      <image src="../images/password_icon.png"></image>
+      <input placeholder="OA密码" placeholder-class="inputBox"></input>
+    </view>
+    <view class="codeCon">
+      <input placeholder="验证码" placeholder-class="inputBox"></input>
+      <image src='../images/code_img.png'></image>
+    </view>
+  </view>
+  <form report-submit="true">
+    <button class="loginBtn" form-type="submit">登陆</button>
+  </form>
+</view>

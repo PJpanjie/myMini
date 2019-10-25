@@ -1,17 +1,25 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
     "pages/canvas/saveCanvas",
-    "pages/scale/scale",
     "pages/components/contactor/contactor",
     "pages/ninepalace/ninepalace",
-    "pages/scratch/scratch"
+    "pages/carShare/carShare",
+    "pages/carLogin/carLogin",
+    "pages/carLineList/carLineList",
+    "pages/mine/mine",
+    "pages/lineSetting/lineSetting",
+    "pages/ownMessage/ownMessage"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "为您提供最优的路线"
+    }
   }
 }

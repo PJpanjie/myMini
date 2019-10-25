@@ -1,0 +1,57 @@
+page {
+  font-size: 28rpx;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+}
+
+.company, .home {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 2rpx solid #efefef;
+}
+
+.companyName, .homeName {
+  display: flex;
+  align-items: center;
+  width: 110rpx;
+  opacity: .6;
+}
+
+.companyName image, .homeName image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.company input, .home input {
+  flex: auto;
+  margin-left: 30rpx;
+}
+
+.goWorkTime {
+  margin-top: 50rpx;
+}
+
+.goWorkTimeTitle {
+  color: #a8a6a6;
+}
+
+.picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+
+.picker image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.timeBtn {
+  width: 600rpx;
+  margin: 200rpx auto 0;
+  background: #ff9100;
+  color: #fff;
+}

@@ -1,0 +1,329 @@
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.carShare {
+  width: 100%;
+  height: 100%;
+  font-size: 32rpx;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 上传图片 */
+.imgUl {
+  display: flex;
+}
+
+.imgli {
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+.imgli image {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.imgli .del {
+  display: block;
+  width: 50rpx;
+  height: 50rpx;
+  background: url(https://img1.40017.cn/cn/s/2018/miniprogram/hehuoren/me/feedback_icon.png) center no-repeat;
+  background-size: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.carShareCon {
+  padding: 50rpx 50rpx 0;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  flex: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling : touch;
+  position: relative;
+  font-size: 28rpx;
+}
+
+.ingOrder {
+  width: 300rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 30rpx 0 0 30rpx;
+  background: #ff9100;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.startLocation, .goLocation {
+  display: flex;
+  align-items: center;
+}
+
+.startLocation .circle, .goLocation .circle {
+  width: 15rpx;
+  height: 15rpx;
+  background: #75cd46;
+  border-radius: 50%;
+  margin-right: 40rpx;
+  flex: none;
+}
+
+.goLocation .circle {
+  background: #ff9100;
+}
+
+.startLocation input, .goLocation input {
+  flex: auto;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.goLocation input {
+  border-bottom: none;
+}
+
+.locationList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+
+.locationListLi {
+  padding: 5rpx 20rpx;
+  box-sizing: border-box;
+  background: #f0eeee;
+  border-radius: 20rpx;
+  margin: 20rpx 10rpx 0;
+}
+
+.lineNormal {
+  margin-top: 50rpx;
+  font-weight: bold;
+  color: #000;
+}
+
+.fastTab {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50rpx;
+}
+
+.goWork, .goOffWork {
+  width: 270rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  border: 2rpx solid #efefef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goWork image, .goOffWork image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+
+.goOffWork image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.linePannel {
+  width: 100%;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  border: 2rpx solid #efefef;
+  box-shadow: 0 0 10rpx 0rpx #efefef;
+  margin-top: 20rpx;
+}
+
+.linePannel .lineTitle {
+  color: #000;
+  font-weight: bold;
+}
+
+.linePannel .lineTxt {
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+
+.timeClock {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+}
+
+.timeClock image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+/* 吸底 */
+.tabBar {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  border-top: 2rpx solid #efefef;
+  z-index: 5;
+  background: #fff;
+  flex: none;
+}
+
+.mainPage, .mine {
+  flex: 1;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.tabBar view.on {
+  color: #fff;
+  background: #75cd46;
+}
+
+/* 弹框时间选择 */
+.timePannelMask, .peoplePannelMask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: background .3s;
+}
+
+.timePannelMask.show, .peoplePannelMask.show {
+  top: 0;
+}
+
+.timePannel, .peoplePannel {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  background: #fff;
+  transition: all .3s;
+  z-index: 11;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.timePannelMask.show .timePannel, .peoplePannelMask.show .peoplePannel {
+  transform: translateY(0);
+}
+
+.selectTimeTitle {
+  font-size: 28rpx;
+  margin-bottom: 50rpx;
+}
+
+.datePicker, .timePicker {
+  margin-bottom: 10rpx;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+}
+
+.picker text {
+  font-size: 36rpx;
+}
+
+.timeBtn {
+  width: 550rpx;
+  margin: 30rpx auto 0;
+  background: #ff9100;
+  color: #fff;
+}
+
+/* 弹框人数选择 */
+.peopleNum {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40rpx;
+}
+
+.peopleNum .peopleNumLi {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 2rpx solid #efefef;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.peopleNum .peopleNumLi.on {
+  background: #ff9100;
+  color: #fff;
+}
+
+.demind {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40rpx;
+}
+
+.demind .price text {
+  font-size: 40rpx;
+  color: #dd0000;
+}
+
+.demindCon {
+  display: flex;
+  margin-left: 40rpx;
+}
+
+.demindCon radio {
+  transform: scale(0.6);
+}
+
+/* 搜索弹框 */
+.searchPannel {
+  width: 100%;
+  height: 85%;
+  position: absolute;
+  top: 15%;
+  z-index: 10;
+  background: #fff;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.searchPannel.topMove {
+  top: 9%;
+  grid-row-end: 91%;
+}
+
+.searchList {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 2rpx solid #efefef;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

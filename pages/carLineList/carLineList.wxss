@@ -1,0 +1,131 @@
+/* 顶部tab切换 */
+page {
+  font-size: 28rpx;
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+
+.tabLi {
+  margin: 0 20rpx;
+}
+
+.tabLi.on {
+  color: #75cd46;
+}
+
+.lineCon {
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+
+.linePannel {
+  width: 100%;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  border: 2rpx solid #efefef;
+  box-shadow: 0 0 10rpx 0rpx #efefef;
+  margin-top: 40rpx;
+}
+
+.linePannelCon {
+  display: flex;
+  justify-content: space-between;
+}
+
+.linePannelLeft, .linePanneRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeType {
+  color: #a8a6a6;
+}
+
+.startLocation, .goLocation {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.startLocation .circle, .goLocation .circle {
+  width: 15rpx;
+  height: 15rpx;
+  background: #75cd46;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  flex: none;
+}
+
+.goLocation .circle {
+  background: #ff9100;
+}
+
+.linePanneRight .orderStatus {
+  font-size: 30rpx;
+  color: #ff9100;
+}
+
+.linePanneRight .price {
+  margin-top: 10rpx;
+}
+
+.btnList {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnLi {
+  width: 140rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+  border: 2rpx solid #bcbcbc;
+  line-height: 50rpx;
+  text-align: center;
+  margin-left: 20rpx;
+}
+
+.btnLi.sure {
+  background: #3198ff;
+  color: #fff;
+}
+
+.driverMess {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+  border-top: 2rpx solid #efefef;
+  padding-top: 30rpx;
+}
+
+.driverMess .headImg {
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 20rpx;
+}
+
+.driverMessTxt {
+  display: flex;
+  flex-direction: column;
+}
+
+.sex {
+  display: flex;
+  align-items: center;
+}
+
+.sex image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+
+.noData {
+  text-align: center;
+  padding: 50rpx 0;
+}

@@ -11,12 +11,9 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 </view>
-<view>
-  <!-- 以下是对一个自定义组件的引用 -->
+<!-- <view>
   <contactor-component inner-text="Some text" prop-a="{{dataFieldA}}" prop-b="{{dataFieldB}}" bindmyevent="onMyEvent">
-    <!-- 这部分内容将被放置在组件 <slot name="before"> 的位置上 -->
     <view slot="before">这里是插入到组件slot name="before"中的内容</view>
-    <!-- 这部分内容将被放置在组件 <slot name="after"> 的位置上 -->
     <view slot="after">这里是插入到组件slot name="after"中的内容</view>
   </contactor-component>
-</view>
+</view> -->

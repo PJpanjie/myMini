@@ -1,4 +1,0 @@
-/* pages/scale/scale.wxss */
-page {
-  overflow: auto;
-}

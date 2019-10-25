@@ -1,0 +1,6 @@
+
+<view class="ownMessageBox">
+  <view class="ownMessageLi">
+    <label>工号</label>
+  </view>
+</view>

@@ -1,0 +1,78 @@
+
+<view class="mineBox">
+  <view class="mineCon">
+    <view class="head">
+      <image class="headImg" src="../images/head_img.png"></image>
+      <view class="headMess">
+        <view class="name">{{userMessage.name}}（{{userMessage.number}}）</view>
+        <view class="headType">
+          <view class="ver">已认证</view>
+          <!-- 车主排名 -->
+          <view class="list">
+            <image src="../images/up_arrow_icon.png"></image>
+            第25名
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="gradeCon">
+      <view class="grade">
+        <view class="gradeTitle">综合评分</view>
+        <view class="gradeRec">
+          <text>5.0</text>
+          极好
+          高于平台92%的用户哦
+        </view>
+        <view class="gradeTxt">根据信息完善度,履约情况及形成后的评价综合评估得出。</view>
+      </view>
+    </view>
+    <!-- 乘客 -->
+    <navigator class="menuList" url="/pages/carLineList/carLineList" wx:if="{{userMessage.empRole == 0}}">
+      <view class="menuName">乘车记录 <text>20条</text></view>
+      <image src="../images/arrow_icon.png"></image>
+    </navigator>
+    <!-- <view class="menuList">
+      <view class="menuName">乘车记录 <text>20条</text></view>
+      <image src="../images/arrow_icon.png"></image>
+    </view> -->
+    <!-- 车主 -->
+    <navigator class="menuList" url="/pages/carLineList/carLineList" wx:else>
+      <view class="menuName">接单记录 <text>20条</text></view>
+      <image src="../images/arrow_icon.png"></image>
+    </navigator>
+    <!-- <view class="menuList">
+      <view class="menuName">接单记录 <text>20条</text></view>
+      <image src="../images/arrow_icon.png"></image>
+    </view> -->
+    <view class="menuList">
+      <view class="menuName">安全中心</view>
+      <image src="../images/arrow_icon.png"></image>
+    </view>
+    <view class="menuList">
+      <view class="menuName">编辑个人资料</view>
+      <image src="../images/arrow_icon.png"></image>
+    </view>
+    <navigator class="menuList" url="/pages/lineSetting/lineSetting">
+      <view class="menuName">上下班行程设置</view>
+      <image src="../images/arrow_icon.png"></image>
+    </navigator>
+    <view class="menuList">
+      <view class="menuName">点评记录</view>
+      <image src="../images/arrow_icon.png"></image>
+    </view>
+    <!-- 车主 -->
+    <view class="menuList">
+      <view class="menuName">车主认证 <text>奥迪Q5</text><text>白色</text><text>苏E34P8T</text></view>
+      <image src="../images/arrow_icon.png"></image>
+    </view>
+    <view class="btnList">
+      <view class="changeRole">切换为{{userMessage.empRole == 0 ? '车主' : '乘客'}}</view>
+      <view class="outBtn">退出</view>
+    </view>
+  </view>
+  <!-- 吸底 -->
+  <view class="tabBar">
+    <view class="mainPage" catchtap='goIndexPage'>主页</view>
+    <view class="mine on">我的</view>
+  </view>
+</view>
