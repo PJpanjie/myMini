@@ -31,6 +31,11 @@
       <view class="menuName">乘车记录 <text>20条</text></view>
       <image src="../images/arrow_icon.png"></image>
     </view>
+    <!-- 乘客订单 -->
+    <view class="menuList" wx:if="{{userMessage.empRole == 0}}" catchtap='goMyLinePage'>
+      <view class="menuName">我的订单列表</view>
+      <image src="../images/arrow_icon.png"></image>
+    </view>
     <!-- 车主 -->
     <view class="menuList" wx:else>
       <view class="menuName">接单记录 <text>20条</text></view>

@@ -53,6 +53,26 @@ Page({
     });
   },
 
+  // 跳转我的订单页面
+  goMyLinePage() {
+    let { userMessage } = this.data;
+
+    console.log(123)
+
+    // 如果是乘客，传乘客参数，如果是车主，传车主参数
+    let passengerId = 0;
+    let driverId = 0;
+
+    if (userMessage && userMessage.empRole == 0) {
+      passengerId = userMessage.id
+    } else if (userMessage.empRole == 1) {
+      driverId = userMessage.id
+    }
+    wx.navigateTo({
+      url: `../carLineList/carLineList?passengerId=${passengerId}&status=0&driverId=${driverId}`
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
