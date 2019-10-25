@@ -127,6 +127,10 @@ Page({
       title: '加载中',
     })
 
+    this.setData({
+      listData: []
+    })
+
     wx.request({
       url: `${configUrl.url}/Car/GetOrderListByDriver`,
       data: reqData,
