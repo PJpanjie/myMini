@@ -632,7 +632,7 @@ Page({
 
     let reqData = {
       passengerId,
-      status: 0,
+      status: 3,
       driverId,
     }
 

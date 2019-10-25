@@ -177,7 +177,7 @@ Page({
       if (type == 'refuse'){
         status = 0;
       } else if (type == 'sure'){
-        status = 2;
+        status = 3;
       }
     }
 
