@@ -40,8 +40,8 @@
     </view>
     <view class="btnList">
       <view class="btnLi" wx:if="{{item.status == 0 || item.status == 2 || item.status == 3}}" catchtap='operateOrder' data-item="{{item}}">取消</view>
-      <view class="btnLi" wx:if="{{item.status == 1}}">拒绝</view>
-      <view class="btnLi sure" wx:if="{{item.status == 1}}">确认</view>
+      <view class="btnLi" wx:if="{{item.status == 1}}" catchtap='operateOrder' data-item="{{item}}" data-type="refuse">拒绝</view>
+      <view class="btnLi sure" wx:if="{{item.status == 1}}" catchtap='operateOrder' data-item="{{item}}" data-type="sure">确认</view>
       <!-- <view class="btnLi sure">确认上车</view> -->
       <view class="btnLi sure" wx:if="{{item.status == 3}}">已达终点</view>
       <view class="btnLi" wx:if="{{item.status == 4}}">去点评</view>
@@ -76,7 +76,7 @@
       </view>
     </view>
     <view class="btnList" wx:if="{{passengerId > 0}}">
-      <view class="btnLi" wx:if="{{item.status == 0 || item.status == 2 || item.status == 3}}" catchtap='operateOrder' data-item="{{item}}">取消</view>
+      <view class="btnLi" wx:if="{{item.status == 0 || item.status == 2 || item.status == 3}}" catchtap='operateOrder'  data-item="{{item}}">取消</view>
       <view class="btnLi" wx:if="{{item.status == 1}}">拒绝</view>
       <view class="btnLi sure" wx:if="{{item.status == 1}}">确认</view>
       <!-- <view class="btnLi sure">确认上车</view> -->

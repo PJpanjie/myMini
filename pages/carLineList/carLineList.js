@@ -160,9 +160,7 @@ Page({
   operateOrder(e){
     // 0-待接单，1-已接单、2-乘客已确认、3-进行中、4-已完成、5-已点评、6-取消
     let { driverId, status, userMessage } = this.data;
-    let { item } = e.currentTarget.dataset;
-
-    console.log(item)
+    let { item, type } = e.currentTarget.dataset;
 
     // 待支付 是取消订单
     if (item.status == 0) {
@@ -174,6 +172,12 @@ Page({
       driverId = 0;
     } else if (userMessage.empRole == 1){
       status = 1;
+    } else if (item.status == 1){
+      if (type == 'refuse'){
+        status = 0;
+      } else if (type == 'sure'){
+        status = 2;
+      }
     }
 
     let reqData = {
